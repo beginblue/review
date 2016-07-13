@@ -1,0 +1,46 @@
+# 7.13 第三天 运算符和类型转换 #
+
+## 111 ％ 13 ##
+111 = 13*9-4 = 13 * 8 + 7 
+the answer is 7
+
+## what is the value of y ##
+```java 
+x=4;y=5;y=x++;
+```
+the answer is 4
+
+## what is the output ##
+``` java 
+public static void main(String[] args){
+	int n = 7 ; //n = 111b
+	n<<=3; // n = 111000b = 56 
+	n=n&n+1|n+2^n+3;
+	//四则运算的优先级高于位运算
+	n>>=2;
+	System.out.println(n);
+}
+```
+the answer is 14
+n=n&(n+1)|(n+2)^(n+3)
+
+## instanceof 是一个二元操作数 ##
+
+## 运算符的优先级 ##
+[运算符优先级](http://www.cnblogs.com/gw811/archive/2012/10/13/2722752.html,"优先级")
+
+## `equlas()` 和 `==` 的区别 ##
+默认的`equals()`和`==`都是比较值类型的值或者引用类型的引用是否相同。
+但是`equals()`可以被重载 比如‘String.equals()`
+
+## 参数传递 ##
+值类型数据在函数内不修改外不变量的值
+引用类型因为传递的实际上是地址所以函数内部的修改会对外面的值产生影响
+String是特殊的，线程安全的，在函数内部不饿能被改写
+`public static void test(String str){ str="ddd"; }`
+等效于
+`public static void test(String str){ str = new String("ddd");} `
+str对应的地址变了但是函数外部对应的变量仍然指向str传入时的地址    
+一般变量的情况
+`void test(myObject object){ object = new myObject();}`
+`
